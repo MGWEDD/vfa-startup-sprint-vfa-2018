@@ -24,14 +24,15 @@ class App < Sinatra::Base
     # get json as ruby object, then write html to view some of it.
     reddit_json_ruby = JSON.parse(RestClient.get('http://reddit.com/.json'))
     
-   @post_one = reddit_json_ruby['data']['children'][0]
-   
-   @post_two = reddit_json_ruby['data']['children'][1]
-   
-   @post_three = reddit_json_ruby['data']['children'][2]
-   
-    # binding.pry
-    # @listings = []
+    # master erb array object with n (3 now) reddit posts from the reddit API
+    
+    @post_one = reddit_json_ruby['data']['children'][0], 
+    @post_two = reddit_json_ruby['data']['children'][1],
+    @post_three = reddit_json_ruby['data']['children'][2]
+    
+    @reddit_posts = [@post_one, @post_two, @post_three]
+    
+    binding.pry
     
     erb :reddit
   end

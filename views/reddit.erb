@@ -1,33 +1,13 @@
-# ERB to HTML translation to render three reddit posts from the reddit JSON API dump
+<!-- ERB to HTML translation to render n reddit posts from the reddit JSON API dump -->
 
-# Post One
-<div>
+<!-- Render reddit posts using ERB object, working through HTML -->
+
   <div class="column">
-    <h3>Post One</h3>
-      <% @post_one %>
-      <% end %>
-  </div>
-  
-=begin
-# Post Two
-  <div class="column">
-    <h3>Post Two</h3>
+    <h3>Reddit Snapshot</h3>
     <ol>
-      <% @post_two.each do |item| %>
-        <li><%= item.first %>: <%= item.last %></li>
+      <% @reddit_posts.each do |item| %>
+        <li><%= item %></li>
       <% end %>
     </ol>
   </div>
 </div>
-
-# Post Three
-<div class="column">
-    <h3>Post Three</h3>
-    <ol>
-      <% @post_three.each do |item| %>
-        <li><%= item.first %>: <%= item.last %></li>
-      <% end %>
-    </ol>
-  </div>
-</div>
-=end
