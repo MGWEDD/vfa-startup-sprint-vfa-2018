@@ -6,6 +6,7 @@ class App < Sinatra::Base
     erb :home
   end
 
+  # SUBSCRIBE FEATURE
   post '/subscribe' do
     @full_name = params[:full_name]
     @email = params[:email]
@@ -17,15 +18,25 @@ class App < Sinatra::Base
     erb :subscribe
   end
 
+# REDDIT FEATURE
   get '/reddit' do
-    # TODO: we can probably get Reddit listings with something like:
-    # JSON.parse(RestClient.get('http://reddit.com/.json'))
-
-    @listings = []
-
+    
+    # get json as ruby object, then write html to view some of it.
+    reddit_json_ruby = JSON.parse(RestClient.get('http://reddit.com/.json'))
+    
+   @post_one = reddit_json_ruby['data']['children'][0]
+   
+   @post_two = reddit_json_ruby['data']['children'][1]
+   
+   @post_three = reddit_json_ruby['data']['children'][2]
+   
+    # binding.pry
+    # @listings = []
+    
     erb :reddit
   end
 
+  # SCHEDULE FEATURE
   get '/schedule' do
     @today = [
       ['7:00am', 'Wake up'],
@@ -51,8 +62,6 @@ class App < Sinatra::Base
 
     erb :schedule
   end
-
-  # TODO: redirect /home to root
 
   # TODO: design and implement /training page
 
