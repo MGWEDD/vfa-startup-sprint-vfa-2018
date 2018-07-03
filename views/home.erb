@@ -8,6 +8,13 @@
 <% if @error == 'email' %>
   <p style="color: red;">Please enter a valid email</p>
 <% end %>
+<% if @error == 'full-name' %>
+  <p style="color: red;">Please enter your name</p>
+<% end %>
+<% if @error == 'city' %>
+  <p style="color: red;">Please enter your city</p>
+<% end %>
+
 
 <!-- TODO: Add form validations -->
 <form method=POST action="/subscribe">
