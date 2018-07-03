@@ -15,17 +15,20 @@
   <p style="color: red;">Please enter your city</p>
 <% end %>
 
-
-<!-- TODO: Add form validations -->
 <form method=POST action="/subscribe">
   <label for="full-name">Full Name</label>
   <input type="text" id="full-name" name="full_name">
+  <input type="text" name="full_name" value="<?php echo isset($_POST['full_name']) ? $_POST['full_name'] : '' ?>" />
   <%=form.text_field :full_name, :required => true %>
   <label for="email">Email</label>
   <input type="text" id="email" name="email">
+  <input type="text" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : '' ?>" />
   <%= f.email_field :email, id: 'user_email', type:'email', required: true, placeholder: "Email" %>
+  
   <!-- TODO: add city field -->
 
+  <input type="text" name="city" value="<?php echo isset($_POST['city']) ? $_POST['city'] : '' ?>" />
   <%=form.text_field :city, :required => true %>
+  
   <input type="Submit">
 </form>
