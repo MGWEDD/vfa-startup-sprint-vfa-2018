@@ -6,6 +6,11 @@ class App < Sinatra::Base
     erb :home
   end
 
+# Trello ticket: redirect-/home-to-root
+get '/home' do
+    redirect "/"
+  end
+
   post '/subscribe' do
     @full_name = params[:full_name]
     @email = params[:email]
