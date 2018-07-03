@@ -9,6 +9,8 @@
   <p style="color: red;">Please enter a valid email</p>
 <% end %>
 
+<%= f.email_field :email, id: 'user_email', type:'email', required: true, placeholder: "Email" %>
+
 <!-- TODO: Add form validations -->
 <form method=POST action="/subscribe">
   <label for="full-name">Full Name</label>
